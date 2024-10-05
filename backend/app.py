@@ -7,7 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://canaryproject_user:tBvTtZE
 db = SQLAlchemy(app)
 
 class Log(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email_id = db.Column(db.String, nullable=False)
     public_ip = db.Column(db.String, nullable=False)
     user_agent = db.Column(db.String, nullable=False)
