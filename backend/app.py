@@ -25,5 +25,19 @@ def get_logs():
     logs = Log.query.all()
     return jsonify([{'email_id': log.email_id, 'public_ip': log.public_ip} for log in logs])
 
+@app.route('/api/logs', methods=['POST'])
+def create_log():
+    data = request.get_json()  # Get JSON data from the request
+    access_time = data.get('access_time', datetime.utcnow())  # Get access_time from the request or use current time
+    new_log = Log(
+        email_id=data['email_id'],
+        public_ip=data['public_ip'],
+        user_agent=data['user_agent'],
+        access_time=access_time  # Include access_time in the log entry
+    )
+    db.session.add(new_log)  # Add the new log to the session
+    db.session.commit()  # Commit the transaction
+    return jsonify({'message': 'Log created successfully!'}), 201
+
 if __name__ == '__main__':
     app.run()
