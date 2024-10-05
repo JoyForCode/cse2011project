@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://canaryproject_user:tBvTtZE65hv2WdYnTreIiXJwxaRq7UEh@dpg-cs029d3tq21c738t145g-a/canaryproject'
