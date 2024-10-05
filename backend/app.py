@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -33,7 +33,7 @@ def create_log():
         email_id=data['email_id'],
         public_ip=data['public_ip'],
         user_agent=data['user_agent'],
-        access_time=access_time  # Include access_time in the log entry
+        access_time=datetime.utcnow() # Include access_time in the log entry
     )
     db.session.add(new_log)  # Add the new log to the session
     db.session.commit()  # Commit the transaction
