@@ -1,6 +1,6 @@
 window.onload = () => {
     // URL of the backend API
-    const apiUrl = "https://canary-project-backend.herokuapp.com/api/logs";  // Replace with your Flask API URL
+    const apiUrl = "https://canary-project.onrender.com/api/logs";  // Replace with your Flask API URL
 
     // Fetch logs from the backend and display them in the table
     fetch(apiUrl)
