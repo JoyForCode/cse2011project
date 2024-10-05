@@ -15,6 +15,10 @@ class Log(db.Model):
 
     def __repr__(self):
         return f'<Log {self.email_id}>'
+    
+@app.route("/")
+def home():
+    return "Welcome to the Home Page!"
 
 @app.route('/api/logs', methods=['GET'])
 def get_logs():
